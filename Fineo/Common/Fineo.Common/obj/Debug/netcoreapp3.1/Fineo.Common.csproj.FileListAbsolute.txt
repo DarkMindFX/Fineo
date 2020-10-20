@@ -1,0 +1,12 @@
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\bin\Debug\netcoreapp3.1\Fineo.Constants.dll
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.csprojAssemblyReference.cache
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.AssemblyInfoInputs.cache
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.AssemblyInfo.cs
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\bin\Debug\netcoreapp3.1\Fineo.Common.deps.json
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\bin\Debug\netcoreapp3.1\Fineo.Common.dll
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\bin\Debug\netcoreapp3.1\Fineo.Common.pdb
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\bin\Debug\netcoreapp3.1\Fineo.Constants.pdb
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.csproj.CoreCompileInputs.cache
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.csproj.CopyComplete
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.dll
+D:\Projects\Fineo\Fineo\Common\Fineo.Common\obj\Debug\netcoreapp3.1\Fineo.Common.pdb

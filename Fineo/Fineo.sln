@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A5D5B984-11DB-49EC-A793-AEA14307CE57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EBBE04AB-E52E-4488-9D13-6AC8FCA71587}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4068D5E8-A097-447D-968B-75B72BDE7778}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.Constants", "Common\Fineo.Constants\Fineo.Constants.csproj", "{1C39D455-A80D-484C-8373-4BAD8940C54C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.Services.Common", "Services\Fineo.Services.Common\Fineo.Services.Common.csproj", "{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.Common", "Common\Fineo.Common\Fineo.Common.csproj", "{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.DTOs", "Common\Fineo.DTOs\Fineo.DTOs.csproj", "{AB813758-CD4B-4A1F-8844-C5444FD0FE0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Fineo.Common", "Tests\TEst.Fineo.Common\Test.Fineo.Common.csproj", "{9E2B0013-A764-444F-A621-66B3EB01DB48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C39D455-A80D-484C-8373-4BAD8940C54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C39D455-A80D-484C-8373-4BAD8940C54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C39D455-A80D-484C-8373-4BAD8940C54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C39D455-A80D-484C-8373-4BAD8940C54C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2B0013-A764-444F-A621-66B3EB01DB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2B0013-A764-444F-A621-66B3EB01DB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2B0013-A764-444F-A621-66B3EB01DB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2B0013-A764-444F-A621-66B3EB01DB48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C39D455-A80D-484C-8373-4BAD8940C54C} = {4068D5E8-A097-447D-968B-75B72BDE7778}
+		{E4965EC0-C5F4-4334-AA14-9D503DDE4CD6} = {A5D5B984-11DB-49EC-A793-AEA14307CE57}
+		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F} = {4068D5E8-A097-447D-968B-75B72BDE7778}
+		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A} = {4068D5E8-A097-447D-968B-75B72BDE7778}
+		{9E2B0013-A764-444F-A621-66B3EB01DB48} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}
+	EndGlobalSection
+EndGlobal

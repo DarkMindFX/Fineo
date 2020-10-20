@@ -1,0 +1,265 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\Fineo\\Fineo\\Services\\Fineo.Services.Common\\Fineo.Services.Common.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\Fineo.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\Fineo.Common.csproj",
+        "projectName": "Fineo.Common",
+        "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\Fineo.Common.csproj",
+        "packagesPath": "C:\\Users\\zr_co\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zr_co\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Projects\\RoiFX\\DarkMindFX\\DarkMindFX.ApiClientLibs\\.NET\\Output\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj": {
+                "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj",
+        "projectName": "Fineo.Constants",
+        "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj",
+        "packagesPath": "C:\\Users\\zr_co\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zr_co\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Projects\\RoiFX\\DarkMindFX\\DarkMindFX.ApiClientLibs\\.NET\\Output\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\Fineo.DTOs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\Fineo.DTOs.csproj",
+        "projectName": "Fineo.DTOs",
+        "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\Fineo.DTOs.csproj",
+        "packagesPath": "C:\\Users\\zr_co\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zr_co\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Projects\\RoiFX\\DarkMindFX\\DarkMindFX.ApiClientLibs\\.NET\\Output\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\Fineo.Common.csproj": {
+                "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Common\\Fineo.Common.csproj"
+              },
+              "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj": {
+                "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.Constants\\Fineo.Constants.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Fineo\\Fineo\\Services\\Fineo.Services.Common\\Fineo.Services.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Fineo\\Fineo\\Services\\Fineo.Services.Common\\Fineo.Services.Common.csproj",
+        "projectName": "Fineo.Services.Common",
+        "projectPath": "D:\\Projects\\Fineo\\Fineo\\Services\\Fineo.Services.Common\\Fineo.Services.Common.csproj",
+        "packagesPath": "C:\\Users\\zr_co\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Fineo\\Fineo\\Services\\Fineo.Services.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\zr_co\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Projects\\RoiFX\\DarkMindFX\\DarkMindFX.ApiClientLibs\\.NET\\Output\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\Fineo.DTOs.csproj": {
+                "projectPath": "D:\\Projects\\Fineo\\Fineo\\Common\\Fineo.DTOs\\Fineo.DTOs.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
