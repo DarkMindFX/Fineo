@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.DTOs", "Common\Fineo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Fineo.Common", "Tests\Test.Fineo.Common\Test.Fineo.Common.csproj", "{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jobs", "Jobs", "{5077B7BD-7C66-4A48-9C91-8266F396C972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.Interfaces", "Common\Fineo.Interfaces\Fineo.Interfaces.csproj", "{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{E87A5E8C-B63E-4D41-8E42-76D1A183AE3F} = {4068D5E8-A097-447D-968B-75B72BDE7778}
 		{AB813758-CD4B-4A1F-8844-C5444FD0FE0A} = {4068D5E8-A097-447D-968B-75B72BDE7778}
 		{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
+		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E} = {4068D5E8-A097-447D-968B-75B72BDE7778}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}
