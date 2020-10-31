@@ -7,13 +7,16 @@ namespace Fineo.Interfaces
 {
     public class MessageBusDTO
     {
-        [JsonProperty(PropertyName = "sender_id")]
+        [JsonProperty("sender_id")]
         public string SenderID { get; set; }
 
-        [JsonProperty(PropertyName = "message_id")]
+        [JsonProperty("receiver_id")]
+        public string ReceiverID { get; set; }
+
+        [JsonProperty("message_id")]
         public string MessageID { get; set; }
 
-        [JsonProperty(PropertyName = "body")]
+        [JsonProperty("body")]
         public string Body { get; set; }
 
         public override bool Equals(object obj)
@@ -21,9 +24,10 @@ namespace Fineo.Interfaces
             MessageBusDTO other = obj as MessageBusDTO;
             if(other != null)
             {
-                return other.SenderID.Equals(this.SenderID) &&
-                        other.MessageID.Equals(this.MessageID) &&
-                        other.Body.Equals(this.Body);
+                return  (other.SenderID != null ? other.SenderID.Equals(SenderID) : SenderID == null) &&
+                        (other.ReceiverID != null ? other.ReceiverID.Equals(ReceiverID) : ReceiverID == null) &&
+                        (other.MessageID != null ? other.MessageID.Equals(MessageID) : MessageID == null) &&
+                        (other.Body != null ? other.Body.Equals(Body) : Body == null);
             }
             else
             {

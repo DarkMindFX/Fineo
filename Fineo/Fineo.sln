@@ -23,7 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jobs", "Jobs", "{5077B7BD-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.Interfaces", "Common\Fineo.Interfaces\Fineo.Interfaces.csproj", "{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Fineo.Interfaces", "Tests\Test.Fineo.Interfaces\Test.Fineo.Interfaces.csproj", "{428D1B99-4498-400C-B4C2-2069BCCCF2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Fineo.Interfaces", "Tests\Test.Fineo.Interfaces\Test.Fineo.Interfaces.csproj", "{428D1B99-4498-400C-B4C2-2069BCCCF2CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{FA73D536-1CBA-4568-970F-9D65B59FDF07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBus.Azure", "Components\MessageBus.Azure\MessageBus.Azure.csproj", "{AD12AC33-627A-4FE4-A0C5-A71B18898B5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MessageBus.Azure", "Tests\Test.MessageBus.Azure\Test.MessageBus.Azure.csproj", "{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +65,14 @@ Global
 		{428D1B99-4498-400C-B4C2-2069BCCCF2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{428D1B99-4498-400C-B4C2-2069BCCCF2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{428D1B99-4498-400C-B4C2-2069BCCCF2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +85,8 @@ Global
 		{10D1F636-6B40-42FE-A927-D6C6AAA1E6D4} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 		{9985CCBA-3DB4-4D2B-BCD1-5C68CB79E95E} = {4068D5E8-A097-447D-968B-75B72BDE7778}
 		{428D1B99-4498-400C-B4C2-2069BCCCF2CE} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
+		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E} = {FA73D536-1CBA-4568-970F-9D65B59FDF07}
+		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}
