@@ -1,0 +1,30 @@
+{
+  "MsgBusConfig": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "MessageQueue": "fineo-test-queue",
+    "QueueEndpoint": "http://127.0.0.1:10001/devstoreaccount1"
+  },
+
+  "MsgBusConfig_InvalidAccount": {
+    "StorageAccountName": "#invalid-account#",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "MessageQueue": "fineo-test-queue"
+  },
+
+  "MsgBusConfig_InvalidKey": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "@invalid_key@6viBqQqOwlQFvSArWQ6jwIB6LRmyyM8zjCP0tHHTmvQ==",
+    "MessageQueue": "fineo-test-queue"
+  },
+
+  "TestMessage": {
+    "senderid": "test_sender_receiver",
+    "receiverid": "test_sender_receiver",
+    "messageid": "IntegrationTestMessage",
+    "body": "test_body_content"
+  }
+
+
+
+}

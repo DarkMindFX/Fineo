@@ -18,9 +18,13 @@ namespace Fineo.Interfaces
     {
         void Init(IMessageBusParams initParams);
 
+        string ID { get; set; }
+
         MessageBusDTO ReadNext();
 
         void Send(MessageBusDTO msg);
+
+        bool Delete();
 
         IMessageBusParams CreateInitParams();
 
