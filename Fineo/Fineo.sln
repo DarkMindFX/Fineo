@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceAPIs", "SourceAPIs", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.SEC.Api", "SourceAPIs\Fineo.SEC.Api\Fineo.SEC.Api.csproj", "{D156C365-BF29-49B0-96C0-E3E22DD1F8BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Fineo.SEC.Api", "Tests\Test.Fineo.SEC.Api\Test.Fineo.SEC.Api.csproj", "{5C8341A7-6354-443E-83E7-8EB5A704A04D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{D156C365-BF29-49B0-96C0-E3E22DD1F8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D156C365-BF29-49B0-96C0-E3E22DD1F8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D156C365-BF29-49B0-96C0-E3E22DD1F8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8341A7-6354-443E-83E7-8EB5A704A04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8341A7-6354-443E-83E7-8EB5A704A04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8341A7-6354-443E-83E7-8EB5A704A04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8341A7-6354-443E-83E7-8EB5A704A04D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +102,7 @@ Global
 		{AD12AC33-627A-4FE4-A0C5-A71B18898B5E} = {FA73D536-1CBA-4568-970F-9D65B59FDF07}
 		{9EB3FB8E-8F75-42FB-B885-1875ECF98C5F} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 		{D156C365-BF29-49B0-96C0-E3E22DD1F8BC} = {B4DC4F19-3967-4798-BB74-9FB6BAFF3CAE}
+		{5C8341A7-6354-443E-83E7-8EB5A704A04D} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}

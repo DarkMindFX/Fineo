@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Fineo.SEC.Api
 {
@@ -168,7 +169,6 @@ namespace Fineo.SEC.Api
                 byte[] fileContent = client.DownloadData(request);
 
                 submission = Convert(fileName, fileContent);
-
             }
 
             return submission;
