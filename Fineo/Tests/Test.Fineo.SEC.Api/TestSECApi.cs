@@ -2,6 +2,7 @@ using Fineo.SEC.Api;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using System;
+using System.Net;
 using System.Reflection;
 
 namespace Test.Fineo.SEC.Api
@@ -20,7 +21,7 @@ namespace Test.Fineo.SEC.Api
 
             IConfiguration config = GetConfiguration();
 
-            string cik = config.GetValue( typeof(string), "SEC_CIK_AAPL").ToString();
+            string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString();
 
             Submissions submissions = api.ArchivesEdgarDataCIK(cik);
             Assert.AreNotEqual(submissions, null, "Submissions are NULL");
@@ -35,8 +36,8 @@ namespace Test.Fineo.SEC.Api
 
             IConfiguration config = GetConfiguration();
 
-            string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString(); 
-            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER").ToString();
+            string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString();
+            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER_20170701").ToString();
 
             Submission submission = api.ArchivesEdgarDataCIKSubmission(cik, accessNum);
             Assert.AreNotEqual(submission, null, "Submission is NULL");
@@ -52,7 +53,7 @@ namespace Test.Fineo.SEC.Api
             IConfiguration config = GetConfiguration();
 
             string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString();
-            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER").ToString();
+            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER_20170701").ToString();
             string fileName = config.GetValue(typeof(string), "SEC_CIK_AAPL_10Q_FILE_XML").ToString();
 
             SubmissionFile file = api.ArchivesEdgarDataCIKSubmissionFile(cik, accessNum, fileName);
@@ -69,7 +70,7 @@ namespace Test.Fineo.SEC.Api
             IConfiguration config = GetConfiguration();
 
             string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString();
-            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER").ToString();
+            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER_20170701").ToString();
             string fileName = config.GetValue(typeof(string), "SEC_CIK_AAPL_10Q_FILE_ZIP").ToString();
 
             SubmissionFile file = api.ArchivesEdgarDataCIKSubmissionFile(cik, accessNum, fileName);
@@ -86,16 +87,30 @@ namespace Test.Fineo.SEC.Api
             IConfiguration config = GetConfiguration();
 
             string cik = config.GetValue(typeof(string), "SEC_CIK_AAPL").ToString();
-            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER").ToString();
+            string accessNum = config.GetValue(typeof(string), "SEC_CIK_AAPL_SUBMISSION_FOLDER_20170701").ToString();
             string fileName = "2FA82DB1-8BFF-4363-B947-5A3BC70AA89D.xml";
 
             try
             {
                 SubmissionFile file = api.ArchivesEdgarDataCIKSubmissionFile(cik, accessNum, fileName);
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                Assert.Fail( string.Format("Invalid error code returned - {0}", ex.ToString()));
+                if (ex.Status == WebExceptionStatus.ProtocolError &&
+                                 ex.Response != null)
+                {
+                    var resp = (HttpWebResponse)ex.Response;
+                    if (resp.StatusCode != HttpStatusCode.NotFound)
+                    {
+                        Assert.Fail(string.Format("Invalid error code returned - {0}", resp.StatusCode));
+                    }
+                    
+                }
+                else
+                {
+                    Assert.Fail(string.Format("Invalid exception returned - {0}", ex.ToString()));
+                }
+                
             }
 
 

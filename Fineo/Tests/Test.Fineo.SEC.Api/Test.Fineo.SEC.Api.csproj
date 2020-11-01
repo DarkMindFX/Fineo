@@ -21,4 +21,10 @@
     <ProjectReference Include="..\..\SourceAPIs\Fineo.SEC.Api\Fineo.SEC.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

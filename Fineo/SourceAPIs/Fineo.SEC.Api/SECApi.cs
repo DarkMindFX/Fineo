@@ -166,7 +166,7 @@ namespace Fineo.SEC.Api
             {
                 string request = string.Format(Command, cik, accessNumber, fileName);
 
-                byte[] fileContent = client.DownloadData(request);
+                byte[] fileContent = client.DownloadData(new Uri(baseUri, request));
 
                 submission = Convert(fileName, fileContent);
             }
