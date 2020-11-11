@@ -37,9 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.SEC.Api", "SourceAPIs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Fineo.SEC.Api", "Tests\Test.Fineo.SEC.Api\Test.Fineo.SEC.Api.csproj", "{5C8341A7-6354-443E-83E7-8EB5A704A04D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStorage.AzureBlob", "Components\FileStorage.AzureBlob\FileStorage.AzureBlob.csproj", "{43DBCE30-85EB-41B6-BAFC-7D8E030AB9F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileStorage.AzureBlob", "Components\FileStorage.AzureBlob\FileStorage.AzureBlob.csproj", "{43DBCE30-85EB-41B6-BAFC-7D8E030AB9F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.FileStorage.AzureBlob", "Tests\Test.FileStorage.AzreBlob\Test.FileStorage.AzureBlob.csproj", "{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.FileStorage.AzureBlob", "Tests\Test.FileStorage.AzreBlob\Test.FileStorage.AzureBlob.csproj", "{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{E1DFB401-07BB-4F53-848E-2217D59FC236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.AzureEmulatorHelper", "Helpers\Fineo.AzureEmulatorHelper\Fineo.AzureEmulatorHelper.csproj", "{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.AzureEmulatorHelper", "Tests\Test.AzureEmulatorHelper\Test.AzureEmulatorHelper.csproj", "{85FD66B8-8850-4DF3-893F-F7B6265298D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +105,14 @@ Global
 		{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +131,8 @@ Global
 		{5C8341A7-6354-443E-83E7-8EB5A704A04D} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 		{43DBCE30-85EB-41B6-BAFC-7D8E030AB9F6} = {FA73D536-1CBA-4568-970F-9D65B59FDF07}
 		{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
+		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9} = {E1DFB401-07BB-4F53-848E-2217D59FC236}
+		{85FD66B8-8850-4DF3-893F-F7B6265298D0} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}

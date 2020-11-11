@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Fineo.Interfaces\Fineo.Interfaces.csproj" />
     <ProjectReference Include="..\..\Components\MessageBus.Azure\MessageBus.Azure.csproj" />
+    <ProjectReference Include="..\..\Helpers\Fineo.AzureEmulatorHelper\Fineo.AzureEmulatorHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>
