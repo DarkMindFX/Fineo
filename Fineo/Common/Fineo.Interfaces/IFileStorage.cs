@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Fineo.Interfaces
 {
@@ -17,9 +18,9 @@ namespace Fineo.Interfaces
     {
         void Init(IFileStorageParams initParams);
 
-        FileInfo Download(FileInfo fileInfo);
+        Task<FileInfo> DownloadAsync(FileInfo fileInfo);
 
-        bool Upload(FileInfo fileInfo);
+        Task<bool> UploadAsync(FileInfo fileInfo);
 
         IFileStorageParams CreateParams();
     }

@@ -17,3 +17,17 @@ D:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.Constant
 D:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.csproj.CopyComplete
 D:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.dll
 D:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.pdb
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.DTOs.deps.json
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.DTOs.dll
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.DTOs.pdb
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.Common.dll
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.Constants.dll
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.Common.pdb
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\bin\Debug\netcoreapp3.1\Fineo.Constants.pdb
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.csprojAssemblyReference.cache
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.AssemblyInfoInputs.cache
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.AssemblyInfo.cs
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.csproj.CoreCompileInputs.cache
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.csproj.CopyComplete
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.dll
+C:\Projects\Fineo\Fineo\Common\Fineo.DTOs\obj\Debug\netcoreapp3.1\Fineo.DTOs.pdb

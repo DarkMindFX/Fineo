@@ -6,19 +6,25 @@ namespace Fineo.Interfaces
 {
     public class FileInfo
     {
-        string Path
+        public string Path
         {
             get;
             set;
         }
 
-        long Size
+        public long Size
         {
             get;
             set;
         }
 
-        byte[] Content
+        public DateTime LastModified
+        {
+            get;
+            set;
+        }
+
+        public byte[] Content
         {
             get;
             set;
