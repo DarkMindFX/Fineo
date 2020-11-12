@@ -1,10 +1,12 @@
 ﻿using Fineo.AzureEmulatorHelper;
 using Fineo.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace Test.FileStorage.AzureBlob
 
         }
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             AzureStorageEmulator ase = new AzureStorageEmulator();
@@ -54,8 +56,6 @@ namespace Test.FileStorage.AzureBlob
             fileStorageParams.Parameters["BlobEndpoint"] = cfg.BlobEndpoint;
 
             fileStorage.Init(fileStorageParams);
-
-            
         }
 
         [Test]
@@ -110,7 +110,186 @@ namespace Test.FileStorage.AzureBlob
             }
         }
 
+        [Test]
+        public void UploadFile_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+        }
+
+        [Test]
+        public void UploadFile_WithFolder_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "TestSubFolder\\test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+        }
+
+        [Test]
+        public void DownloadFile_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+
+            var content = fs.DownloadAsync(fi);
+
+            content.Wait();
+
+            Assert.IsTrue( fi.Content.Length == content.Result.Content.Length, "Contents' lengths are not equal" );
+            for(int i = 0; i < fi.Content.Length; ++i)
+            {
+                Assert.IsTrue(fi.Content[i] == content.Result.Content[i], "Downloaded content is not equal to original");
+            }
+        }
+
+        [Test]
+        public void DownloadFile_WithFolder_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "TestSubFolder\\test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+
+            var content = fs.DownloadAsync(fi);
+
+            content.Wait();
+
+            Assert.IsTrue(fi.Content.Length == content.Result.Content.Length, "Contents' lengths are not equal");
+            for (int i = 0; i < fi.Content.Length; ++i)
+            {
+                Assert.IsTrue(fi.Content[i] == content.Result.Content[i], "Downloaded content is not equal to original");
+            }
+        }
+
+        [Test]
+        public void DeleteFile_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+
+            t = fs.DeleteAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to delete the file");
+        }
+
+        [Test]
+        public void DeleteFile_WithFolder_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "TestSubFolder\\test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+
+            t = fs.DeleteAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to delete the file");
+        }
+
+        [Test]
+        public void DownloadFile_FileNotExist()
+        {
+            try
+            {
+                string fileName = "file-" + Guid.NewGuid().ToString() + ".dat";
+
+                IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+                var fi = new Fineo.Interfaces.FileInfo();
+                fi.Path = fileName;
+
+                var content = fs.DownloadAsync(fi);
+
+                var fiResult = content.Result;
+
+                Assert.Fail("Unexpected content was read");
+            }
+            catch(Exception ex)
+            {
+                Assert.IsTrue(ex.InnerException != null);
+                Assert.IsTrue(ex.InnerException.GetType() == typeof(StorageException));
+            }
+
+        }
+
+        [Test]
+        public void DeleteFile_FileNotExist()
+        {
+            string fileName = "file-" + Guid.NewGuid().ToString() + ".dat";
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = fileName;
+
+            var t = fs.DeleteAsync(fi);
+
+            Assert.IsFalse(t.Result);
+        }
+
         #region Support methods
+
+        private byte[] GetTestFileContent(string path)
+        {
+            byte[] result = File.ReadAllBytes(path);           
+
+            return result;
+
+        }
+
+        private IFileStorage PrepaFileStorage(string configName)
+        {
+            IConfiguration config = GetConfiguration();
+            var cfg = config.GetSection("FileStorageConfig").Get<FileStorageConfig>();
+
+            IFileStorage fileStorage = new Fineo.FileStorage.AzureBlob.FileStorage();
+            IFileStorageParams fileStorageParams = fileStorage.CreateParams();
+
+            fileStorageParams.Parameters["ContainerName"] = cfg.ContainerName;
+            fileStorageParams.Parameters["StorageAccountKey"] = cfg.StorageAccountKey;
+            fileStorageParams.Parameters["StorageAccountName"] = cfg.StorageAccountName;
+            fileStorageParams.Parameters["BlobEndpoint"] = cfg.BlobEndpoint;
+
+            fileStorage.Init(fileStorageParams);
+
+            return fileStorage;
+        }
+
         private IConfiguration GetConfiguration()
         {
             var codebase = Assembly.GetExecutingAssembly().GetName().CodeBase;

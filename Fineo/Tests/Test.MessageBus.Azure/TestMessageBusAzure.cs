@@ -27,7 +27,7 @@ namespace Test.MessageBus.Azure
 
         }
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             AzureStorageEmulator ase = new AzureStorageEmulator();

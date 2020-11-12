@@ -22,6 +22,8 @@ namespace Fineo.Interfaces
 
         Task<bool> UploadAsync(FileInfo fileInfo);
 
+        Task<bool> DeleteAsync(FileInfo fileInfo);
+
         IFileStorageParams CreateParams();
     }
 }

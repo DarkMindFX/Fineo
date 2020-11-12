@@ -31,7 +31,8 @@ namespace Fineo.FileStorage.AzureBlob
                 result.Size = blob.Properties.Length;
                 result.LastModified = blob.Properties.LastModified != null && blob.Properties.LastModified.HasValue ? 
                                         blob.Properties.LastModified.Value.UtcDateTime  : DateTime.MinValue;
-                
+
+                result.Content = new byte[result.Size];
                 await blob.DownloadToByteArrayAsync(result.Content, 0);
             }
 
@@ -53,11 +54,27 @@ namespace Fineo.FileStorage.AzureBlob
             bool result = false;
 
             CloudBlockBlob blob = container.GetBlockBlobReference(fileInfo.Path);
-            await using (var sw = new System.IO.StreamWriter(blob.OpenWriteAsync().Result))
+            await using (var sw = new System.IO.BinaryWriter(blob.OpenWriteAsync().Result))
             {
-                sw.Write(Encoding.Unicode.GetChars(fileInfo.Content));
+                sw.Write(fileInfo.Content);
                 result = true;
             }
+
+            return result;
+        }
+
+        public async Task<bool> DeleteAsync(FileInfo fileInfo)
+        {
+            bool result = false;
+
+            CloudBlockBlob blob = container.GetBlockBlobReference(fileInfo.Path);
+
+            await Task.Run(() =>
+                {
+                    var t = blob.DeleteIfExistsAsync();
+                    result = t.Result;
+                }
+            );            
 
             return result;
         }
