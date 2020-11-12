@@ -4,6 +4,8 @@ using NUnit.Framework;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using System;
+using Fineo.AzureEmulatorHelper;
+using System.Threading.Tasks;
 
 namespace Test.MessageBus.Azure
 {
@@ -25,11 +27,17 @@ namespace Test.MessageBus.Azure
 
         }
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
+            AzureStorageEmulator ase = new AzureStorageEmulator();
+            ase.Start();
+
+            // letting emulator start
+            Task.Delay(5000).Wait();
         }
 
+        
         [Test]
         public void CreateInitParams_Success()
         {

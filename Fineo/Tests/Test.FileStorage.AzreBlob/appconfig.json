@@ -1,0 +1,20 @@
+{
+  "FileStorageConfig": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "ContainerName": "fineo-test-storage",
+    "BlobEndpoint": "http://127.0.0.1:10000/devstoreaccount1"
+  },
+
+  "FileStorageConfig_InvalidAccount": {
+    "StorageAccountName": "#invalid-account#",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "ContainerName": "fineo-test-storage"
+  },
+
+  "FileStorageConfig_InvalidKey": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "@invalid_key@6viBqQqOwlQFvSArWQ6jwIB6LRmyyM8zjCP0tHHTmvQ==",
+    "ContainerName": "fineo-test-storage"
+  }
+}
