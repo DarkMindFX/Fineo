@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Fineo.Interfaces\Fineo.Interfaces.csproj" />
     <ProjectReference Include="..\..\Components\FileStorage.AzureBlob\FileStorage.AzureBlob.csproj" />
+    <ProjectReference Include="..\..\Helpers\Fineo.AzureEmulatorHelper\Fineo.AzureEmulatorHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

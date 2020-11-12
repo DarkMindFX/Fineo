@@ -45,7 +45,7 @@ namespace Fineo.FileStorage.AzureBlob
             CloudStorageAccount account = createCloudStorageAccount(initParams);
             CloudBlobClient client = account.CreateCloudBlobClient();
 
-            container = getBlobContainer(client, this.initParams.Parameters["Container"]);
+            container = getBlobContainer(client, this.initParams.Parameters["ContainerName"]);
         }
 
         public async Task<bool> UploadAsync(FileInfo fileInfo)
