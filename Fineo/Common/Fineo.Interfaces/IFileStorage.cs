@@ -20,6 +20,10 @@ namespace Fineo.Interfaces
 
         Task<FileInfo> DownloadAsync(FileInfo fileInfo);
 
+        Task<FileInfo> GetFileInfo(FileInfo fileInfo);
+
+        Task<List<FileInfo>> GetFolderContent(FileInfo fileInfo);
+
         Task<bool> UploadAsync(FileInfo fileInfo);
 
         Task<bool> DeleteAsync(FileInfo fileInfo);

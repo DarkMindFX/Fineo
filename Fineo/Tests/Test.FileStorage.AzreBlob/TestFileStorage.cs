@@ -7,6 +7,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -260,6 +261,64 @@ namespace Test.FileStorage.AzureBlob
             var t = fs.DeleteAsync(fi);
 
             Assert.IsFalse(t.Result);
+        }
+
+        [Test]
+        public void GetFileInfo_Success()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Path = "test.csv";
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            var t = fs.UploadAsync(fi);
+
+            Assert.IsTrue(t.Result, "Failed to upload file - result FALSE");
+
+            var fileInfo = fs.GetFileInfo(fi);
+
+            Assert.AreEqual(fi.Path, fileInfo.Result.Path);
+            Assert.AreEqual(fi.Content.Length, fileInfo.Result.Size);
+            Assert.IsTrue(fi.LastModified <= DateTime.Now);
+        }
+
+        [Test]
+        public void GetFolderContent_Success()
+        {
+            string[] fileNames = { "test1.csv", "test2.csv", "test3.csv" };
+
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var fi = new Fineo.Interfaces.FileInfo();
+            fi.Content = GetTestFileContent("TestFiles\\test.csv");
+
+            foreach(var f in fileNames)
+            {
+                fi.Path = "TestSubFolder\\" + f;
+                var t = fs.UploadAsync(fi);
+            }
+
+            var folder = new Fineo.Interfaces.FileInfo();
+            folder.Path = "TestSubFolder";
+            var content = fs.GetFolderContent(folder);
+
+            var listOfFiles = content.Result.Select(x => fileNames.Contains(x.Path));
+
+            Assert.IsTrue(listOfFiles.Count() >= 3);
+        }
+
+        [Test]
+        public void GetFolderContent_InvalidFolder()
+        {
+            IFileStorage fs = PrepaFileStorage("FileStorageConfig");
+
+            var folder = new Fineo.Interfaces.FileInfo();
+            folder.Path = "TestSubFolder-" + Guid.NewGuid().ToString();
+            var content = fs.GetFolderContent(folder);
+
+            Assert.IsNotNull(content.Result);
+            Assert.IsEmpty(content.Result);
         }
 
         #region Support methods
