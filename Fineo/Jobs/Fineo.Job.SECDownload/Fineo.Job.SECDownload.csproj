@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Fineo.DTOs\Fineo.DTOs.csproj" />
     <ProjectReference Include="..\..\Common\Fineo.Interfaces\Fineo.Interfaces.csproj" />
     <ProjectReference Include="..\..\Components\FileStorage.AzureBlob\FileStorage.AzureBlob.csproj" />
     <ProjectReference Include="..\..\Components\MessageBus.Azure\MessageBus.Azure.csproj" />
