@@ -1,0 +1,23 @@
+{
+  "FileStorageConfig": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "ContainerName": "fineo-test-storage",
+    "BlobEndpoint": "http://127.0.0.1:10000/devstoreaccount1"
+  },
+
+  "MsgBusConfig_InFiles": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "MessageQueue": "fineo-local-todownload",
+    "QueueEndpoint": "http://127.0.0.1:10001/devstoreaccount1"
+  },
+
+  "MsgBusConfig_OutFiles": {
+    "StorageAccountName": "devstoreaccount1",
+    "StorageAccountKey": "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==",
+    "MessageQueue": "fineo-local-downloadedfiles",
+    "QueueEndpoint": "http://127.0.0.1:10001/devstoreaccount1"
+  }
+
+}

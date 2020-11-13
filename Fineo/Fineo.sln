@@ -43,9 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.FileStorage.AzureBlob"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{E1DFB401-07BB-4F53-848E-2217D59FC236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.AzureEmulatorHelper", "Helpers\Fineo.AzureEmulatorHelper\Fineo.AzureEmulatorHelper.csproj", "{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fineo.AzureEmulatorHelper", "Helpers\Fineo.AzureEmulatorHelper\Fineo.AzureEmulatorHelper.csproj", "{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.AzureEmulatorHelper", "Tests\Test.AzureEmulatorHelper\Test.AzureEmulatorHelper.csproj", "{85FD66B8-8850-4DF3-893F-F7B6265298D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.AzureEmulatorHelper", "Tests\Test.AzureEmulatorHelper\Test.AzureEmulatorHelper.csproj", "{85FD66B8-8850-4DF3-893F-F7B6265298D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fineo.Job.SECDownload", "Jobs\Fineo.Job.SECDownload\Fineo.Job.SECDownload.csproj", "{8B87005B-B36D-4AD0-9662-C8B688B29888}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,10 @@ Global
 		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85FD66B8-8850-4DF3-893F-F7B6265298D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B87005B-B36D-4AD0-9662-C8B688B29888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B87005B-B36D-4AD0-9662-C8B688B29888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B87005B-B36D-4AD0-9662-C8B688B29888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B87005B-B36D-4AD0-9662-C8B688B29888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +139,7 @@ Global
 		{06DBD3E3-7D7D-4A2A-B755-3DA622A256A9} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
 		{F2ADD826-0F96-4F2F-9DDD-E9C198EE74D9} = {E1DFB401-07BB-4F53-848E-2217D59FC236}
 		{85FD66B8-8850-4DF3-893F-F7B6265298D0} = {EBBE04AB-E52E-4488-9D13-6AC8FCA71587}
+		{8B87005B-B36D-4AD0-9662-C8B688B29888} = {5077B7BD-7C66-4A48-9C91-8266F396C972}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {481535B1-36AC-441A-9459-5CE7B8F5B312}
