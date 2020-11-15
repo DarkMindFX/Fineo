@@ -28,7 +28,7 @@ namespace Fineo.Job.SECDownload
 
         public void Start()
         {
-            if(isRunning)
+            if (isRunning)
             {
                 Stop();
             }
@@ -53,10 +53,10 @@ namespace Fineo.Job.SECDownload
                 while (isRunning)
                 {
                     var msgBusDto = msbInFiles.ReadNext();
-                    if(msgBusDto != null && !string.IsNullOrEmpty(msgBusDto.Body))
+                    if (msgBusDto != null && !string.IsNullOrEmpty(msgBusDto.Body))
                     {
                         DownloadFiling msgDownload = JsonConvert.DeserializeObject<DownloadFiling>(msgBusDto.Body);
-                        if(msgDownload != null)
+                        if (msgDownload != null)
                         {
                             if (msgDownload.RegulatorCode == "SEC")
                             {
@@ -66,7 +66,7 @@ namespace Fineo.Job.SECDownload
                     }
                 }
             }
-            catch(ThreadAbortException exTA)
+            catch (ThreadAbortException exTA)
             {
                 // Thread was aborted
             }
@@ -76,7 +76,7 @@ namespace Fineo.Job.SECDownload
         {
             var secApi = new Fineo.SEC.Api.SECApi();
             var submission = secApi.ArchivesEdgarDataCIKSubmission(msgDownload.CompanyCode, msgDownload.Filing);
-            if(submission != null && submission.Files != null)
+            if (submission != null && submission.Files != null)
             {
                 var filingDownloadedDto = new FilingDownloaded()
                 {
@@ -85,22 +85,24 @@ namespace Fineo.Job.SECDownload
                     Filing = msgDownload.Filing
                 };
 
-                foreach(var f in submission.Files)
+
+                var loopResult = Parallel.ForEach(submission.Files, f =>
                 {
                     var subFile = secApi.ArchivesEdgarDataCIKSubmissionFile(msgDownload.CompanyCode, msgDownload.Filing, f.Name);
-                    if(subFile != null)
+                    if (subFile != null)
                     {
                         string blobPath = string.Format($"{msgDownload.RegulatorCode}\\{msgDownload.CompanyCode}\\{msgDownload.Filing}\\{subFile.Name}");
                         var newFile = new Fineo.Interfaces.FileInfo();
                         newFile.Path = blobPath;
                         newFile.Content = subFile.Content.ToArray();
 
-                        if(fileStorage.UploadAsync(newFile).Result)
+                        if (fileStorage.UploadAsync(newFile).Result)
                         {
                             filingDownloadedDto.Docs.Add(blobPath);
                         }
                     }
-                }
+                });
+
 
                 var notificationDto = new MessageBusDTO();
                 notificationDto.Body = JsonConvert.SerializeObject(filingDownloadedDto);
