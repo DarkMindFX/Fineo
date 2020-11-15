@@ -22,6 +22,7 @@ namespace Fineo.Job.SECDownload
         {
             fileStorage = compContainer.GetExportedValue<IFileStorage>("FileStorage");
             msbInFiles = compContainer.GetExportedValue<IMessageBus>("InDownloadFiles");
+            msbInFiles.ID = "SEC"; // 
             msbOutNotification = compContainer.GetExportedValue<IMessageBus>("OutFilesDownloaded");
         }
 
@@ -57,7 +58,10 @@ namespace Fineo.Job.SECDownload
                         DownloadFiling msgDownload = JsonConvert.DeserializeObject<DownloadFiling>(msgBusDto.Body);
                         if(msgDownload != null)
                         {
-                            Task.Run(() => DownloadSECFiling(msgDownload));
+                            if (msgDownload.RegulatorCode == "SEC")
+                            {
+                                Task.Run(() => DownloadSECFiling(msgDownload));
+                            }
                         }
                     }
                 }
@@ -70,6 +74,40 @@ namespace Fineo.Job.SECDownload
 
         private void DownloadSECFiling(DownloadFiling msgDownload)
         {
+            var secApi = new Fineo.SEC.Api.SECApi();
+            var submission = secApi.ArchivesEdgarDataCIKSubmission(msgDownload.CompanyCode, msgDownload.Filing);
+            if(submission != null && submission.Files != null)
+            {
+                var filingDownloadedDto = new FilingDownloaded()
+                {
+                    RegulatorCode = msgDownload.RegulatorCode,
+                    CompanyCode = msgDownload.CompanyCode,
+                    Filing = msgDownload.Filing
+                };
+
+                foreach(var f in submission.Files)
+                {
+                    var subFile = secApi.ArchivesEdgarDataCIKSubmissionFile(msgDownload.CompanyCode, msgDownload.Filing, f.Name);
+                    if(subFile != null)
+                    {
+                        string blobPath = string.Format($"{msgDownload.RegulatorCode}\\{msgDownload.CompanyCode}\\{msgDownload.Filing}\\{subFile.Name}");
+                        var newFile = new Fineo.Interfaces.FileInfo();
+                        newFile.Path = blobPath;
+                        newFile.Content = subFile.Content.ToArray();
+
+                        if(fileStorage.UploadAsync(newFile).Result)
+                        {
+                            filingDownloadedDto.Docs.Add(blobPath);
+                        }
+                    }
+                }
+
+                var notificationDto = new MessageBusDTO();
+                notificationDto.Body = JsonConvert.SerializeObject(filingDownloadedDto);
+                notificationDto.MessageID = Guid.NewGuid().ToString();
+                msbOutNotification.Send(notificationDto);
+
+            }
 
         }
     }

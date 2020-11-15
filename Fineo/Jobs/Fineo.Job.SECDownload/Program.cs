@@ -11,11 +11,13 @@ namespace Fineo.Job.SECDownload
 {
     class Program
     {
+        SECReportsDownloader downloader = default;
         private CompositionContainer CompositionContainer
         {
             get;
             set;
         }
+
 
         private IMessageBus InitMessageBus(string configName)
         {
@@ -37,7 +39,7 @@ namespace Fineo.Job.SECDownload
 
         private IFileStorage InitFileStorage(string configName)
         {
-            IFileStorage result = null;
+            IFileStorage result = new Fineo.FileStorage.AzureBlob.FileStorage();
 
             IFileStorageParams fsParams = result.CreateParams();
             IConfiguration config = GetConfiguration();
@@ -54,8 +56,12 @@ namespace Fineo.Job.SECDownload
 
         private IConfiguration GetConfiguration()
         {
+            var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            string configFile = string.IsNullOrEmpty(environmentName) ? $"appconfig.json" : $"appconfig.{environmentName}.json";
+
             IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile("appconfig.json", optional: false, reloadOnChange: true)
+                .AddJsonFile(configFile, optional: false, reloadOnChange: true)
                 .Build();
 
             return config;
@@ -67,6 +73,15 @@ namespace Fineo.Job.SECDownload
             CompositionContainer.ComposeExportedValue<IMessageBus>("InDownloadFiles", InitMessageBus("MsgBusConfig_InFiles"));
             CompositionContainer.ComposeExportedValue<IMessageBus>("OutFilesDownloaded", InitMessageBus("MsgBusConfig_OutFiles"));
             CompositionContainer.ComposeExportedValue<IFileStorage>("FileStorage", InitFileStorage("FileStorageConfig"));
+
+            if(downloader != null)
+            {
+                downloader.Stop();
+            }
+
+            downloader = new SECReportsDownloader(CompositionContainer);
+
+            downloader.Start();
         }
 
         static void Main(string[] args)

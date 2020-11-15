@@ -19,9 +19,13 @@
     <ProjectReference Include="..\..\Common\Fineo.Interfaces\Fineo.Interfaces.csproj" />
     <ProjectReference Include="..\..\Components\FileStorage.AzureBlob\FileStorage.AzureBlob.csproj" />
     <ProjectReference Include="..\..\Components\MessageBus.Azure\MessageBus.Azure.csproj" />
+    <ProjectReference Include="..\..\SourceAPIs\Fineo.SEC.Api\Fineo.SEC.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="appconfig.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="appconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
