@@ -3,14 +3,11 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fineo.MessageBus.Azure
 {
     public class MessageBus : IMessageBus
     {
-        IMessageBusParams msgBusParams;
 
         CloudStorageAccount account;
         CloudQueueClient client;
@@ -28,8 +25,6 @@ namespace Fineo.MessageBus.Azure
 
         public void Init(IMessageBusParams initParams)
         {
-            msgBusParams = initParams;
-
             account = createCloudStorageAccount(initParams);
             client = account.CreateCloudQueueClient();
             queue = client.GetQueueReference((string)initParams.Parameters["MessageQueue"]);
@@ -53,9 +48,9 @@ namespace Fineo.MessageBus.Azure
             return result;
         }
 
-        public void Send(MessageBusDTO msgDto)
+        public void Send(MessageBusDTO msg)
         {
-            CloudQueueMessage msg = new CloudQueueMessage(JsonConvert.SerializeObject(msgDto));
+            CloudQueueMessage msg = new CloudQueueMessage(JsonConvert.SerializeObject(msg));
             queue.AddMessageAsync(msg).Wait();
         }
 

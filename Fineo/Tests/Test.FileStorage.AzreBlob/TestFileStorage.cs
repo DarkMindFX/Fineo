@@ -5,11 +5,9 @@ using Microsoft.WindowsAzure.Storage;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Test.FileStorage.AzureBlob
@@ -79,7 +77,7 @@ namespace Test.FileStorage.AzureBlob
                 Assert.Fail("FileStorage initialized with invalud account");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Assert.Pass(); // OK - exception is expected
             }
@@ -105,7 +103,7 @@ namespace Test.FileStorage.AzureBlob
                 Assert.Fail("FileStorage initialized with invalud key");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Assert.Pass(); // OK - exception is expected
             }

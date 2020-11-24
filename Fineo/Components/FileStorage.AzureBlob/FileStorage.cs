@@ -1,11 +1,9 @@
-﻿using Azure.Storage.Blobs;
-using Fineo.Interfaces;
+﻿using Fineo.Interfaces;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Fineo.FileStorage.AzureBlob

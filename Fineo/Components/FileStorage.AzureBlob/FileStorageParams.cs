@@ -1,5 +1,4 @@
 ﻿using Fineo.Interfaces;
-using System;
 using System.Collections.Generic;
 
 namespace Fineo.FileStorage.AzureBlob

@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fineo.Interfaces
 {
@@ -38,6 +35,11 @@ namespace Fineo.Interfaces
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
 

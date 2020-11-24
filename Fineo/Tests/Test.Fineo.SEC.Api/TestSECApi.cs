@@ -1,7 +1,6 @@
 using Fineo.SEC.Api;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using System;
 using System.Net;
 using System.Reflection;
 

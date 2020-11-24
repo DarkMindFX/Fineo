@@ -26,7 +26,7 @@ namespace Fineo.DTOs
 
     public abstract class ResponseBase
     {
-        public ResponseBase()
+        protected ResponseBase()
         {
             Errors = new List<Error>();
         }

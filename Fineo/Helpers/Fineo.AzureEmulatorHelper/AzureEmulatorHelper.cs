@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Fineo.AzureEmulatorHelper
@@ -110,10 +109,6 @@ namespace Fineo.AzureEmulatorHelper
             return status;
         }
 
-        private string CreateCommandLine(string command)
-        {
-            return string.Format($"/C \"%AZURE_EMULATOR_HOME%\\AzureStorageEmulator.exe\" {command}");
-        }
         private ProcessStartInfo CreateCommand(string command)
         {
             string dir = Environment.GetEnvironmentVariable("AZURE_EMULATOR_HOME");

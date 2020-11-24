@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
-using System.Reflection;
+
 
 namespace Fineo.Job.SECDownload
 {

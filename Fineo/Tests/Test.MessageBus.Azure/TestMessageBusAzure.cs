@@ -92,7 +92,7 @@ namespace Test.MessageBus.Azure
                 Assert.Fail("MessageBus initialized with invalud account");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Assert.Pass(); // OK - exception is expected
             }
@@ -118,7 +118,7 @@ namespace Test.MessageBus.Azure
                 Assert.Fail("MessageBus initialized with invalud key");
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Assert.Pass(); // OK - exception is expected
             }

@@ -2,9 +2,7 @@
 using Fineo.Interfaces;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,9 +10,9 @@ namespace Fineo.Job.SECDownload
 {
     class SECReportsDownloader
     {
-        private IFileStorage fileStorage = default;
-        private IMessageBus msbInFiles = default;
-        private IMessageBus msbOutNotification = default;
+        private readonly IFileStorage fileStorage = default;
+        private readonly IMessageBus msbInFiles = default;
+        private readonly IMessageBus msbOutNotification = default;
         private bool isRunning = false;
         private Thread listenThread = null;
 
@@ -56,17 +54,14 @@ namespace Fineo.Job.SECDownload
                     if (msgBusDto != null && !string.IsNullOrEmpty(msgBusDto.Body))
                     {
                         DownloadFiling msgDownload = JsonConvert.DeserializeObject<DownloadFiling>(msgBusDto.Body);
-                        if (msgDownload != null)
+                        if (msgDownload != null && msgDownload.RegulatorCode == "SEC")
                         {
-                            if (msgDownload.RegulatorCode == "SEC")
-                            {
-                                Task.Run(() => DownloadSECFiling(msgDownload));
-                            }
+                            Task.Run(() => DownloadSECFiling(msgDownload));
                         }
                     }
                 }
             }
-            catch (ThreadAbortException exTA)
+            catch (ThreadAbortException)
             {
                 // Thread was aborted
             }
