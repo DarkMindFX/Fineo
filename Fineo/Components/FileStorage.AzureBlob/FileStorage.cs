@@ -170,3 +170,10 @@ namespace Fineo.FileStorage.AzureBlob
         #endregion
     }
 }
+
+namespace System
+{
+    public enum IAsyncDisposable
+    {
+    }
+}
