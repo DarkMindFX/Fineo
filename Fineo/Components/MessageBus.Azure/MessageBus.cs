@@ -28,7 +28,7 @@ namespace Fineo.MessageBus.Azure
             account = createCloudStorageAccount(initParams);
             client = account.CreateCloudQueueClient();
             queue = client.GetQueueReference(initParams.Parameters["MessageQueue"]);
-            queue.CreateIfNotExistsAsync();
+            bool created = queue.CreateIfNotExistsAsync().Result;
         }
 
         public MessageBusDto ReadNext()
