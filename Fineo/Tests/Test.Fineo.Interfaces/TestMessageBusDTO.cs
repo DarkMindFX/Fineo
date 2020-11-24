@@ -16,7 +16,7 @@ namespace Test.Fineo.Interfaces
         {
             string senderId = "test_sender_id";
 
-            MessageBusDTO msgBusDto = new MessageBusDTO()
+            MessageBusDto msgBusDto = new MessageBusDto()
             {
                 SenderID = senderId
             };
@@ -30,7 +30,7 @@ namespace Test.Fineo.Interfaces
         {
             string messageId = "test_message_id";
 
-            MessageBusDTO msgBusDto = new MessageBusDTO()
+            MessageBusDto msgBusDto = new MessageBusDto()
             {
                 MessageID = messageId
             };
@@ -44,7 +44,7 @@ namespace Test.Fineo.Interfaces
         {
             string body = "test_body";
 
-            MessageBusDTO msgBusDto = new MessageBusDTO()
+            MessageBusDto msgBusDto = new MessageBusDto()
             {
                 Body = body
             };
@@ -60,14 +60,14 @@ namespace Test.Fineo.Interfaces
             string messageId = "test_message_id";
             string body = "test_body";
 
-            MessageBusDTO dto1 = new MessageBusDTO()
+            MessageBusDto dto1 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId,
                 Body = body
             };
 
-            MessageBusDTO dto2 = new MessageBusDTO()
+            MessageBusDto dto2 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId,
@@ -86,14 +86,14 @@ namespace Test.Fineo.Interfaces
             string messageId = "test_message_id";
             string body = "test_body";
 
-            MessageBusDTO dto1 = new MessageBusDTO()
+            MessageBusDto dto1 = new MessageBusDto()
             {
                 SenderID = senderId1,
                 MessageID = messageId,
                 Body = body
             };
 
-            MessageBusDTO dto2 = new MessageBusDTO()
+            MessageBusDto dto2 = new MessageBusDto()
             {
                 SenderID = senderId2,
                 MessageID = messageId,
@@ -112,14 +112,14 @@ namespace Test.Fineo.Interfaces
             string messageId2 = "test_message_id2";
             string body = "test_body";
 
-            MessageBusDTO dto1 = new MessageBusDTO()
+            MessageBusDto dto1 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId1,
                 Body = body
             };
 
-            MessageBusDTO dto2 = new MessageBusDTO()
+            MessageBusDto dto2 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId2,
@@ -138,14 +138,14 @@ namespace Test.Fineo.Interfaces
             string body1 = "test_body1";
             string body2 = "test_body2";
 
-            MessageBusDTO dto1 = new MessageBusDTO()
+            MessageBusDto dto1 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId,
                 Body = body1
             };
 
-            MessageBusDTO dto2 = new MessageBusDTO()
+            MessageBusDto dto2 = new MessageBusDto()
             {
                 SenderID = senderId,
                 MessageID = messageId,
@@ -163,7 +163,7 @@ namespace Test.Fineo.Interfaces
             string messageId = "messageId";
             string senderId = "senderId";
 
-            MessageBusDTO msgBusDto = new MessageBusDTO()
+            MessageBusDto msgBusDto = new MessageBusDto()
             {
                 MessageID = messageId,
                 SenderID = senderId,
@@ -172,7 +172,7 @@ namespace Test.Fineo.Interfaces
 
             string serialized = JsonConvert.SerializeObject(msgBusDto);
 
-            MessageBusDTO deserialized = JsonConvert.DeserializeObject<MessageBusDTO>(serialized);
+            MessageBusDto deserialized = JsonConvert.DeserializeObject<MessageBusDto>(serialized);
 
             Assert.IsTrue(msgBusDto.Equals(deserialized));
 

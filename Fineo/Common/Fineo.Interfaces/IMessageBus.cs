@@ -19,9 +19,9 @@ namespace Fineo.Interfaces
 
         string ID { get; set; }
 
-        MessageBusDTO ReadNext();
+        MessageBusDto ReadNext();
 
-        void Send(MessageBusDTO msg);
+        void Send(MessageBusDto msg);
 
         bool Delete();
 

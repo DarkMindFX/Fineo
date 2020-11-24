@@ -2,7 +2,7 @@
 
 namespace Fineo.Interfaces
 {
-    public class MessageBusDTO
+    public class MessageBusDto
     {
         [JsonProperty("sender_id")]
         public string SenderID { get; set; }
@@ -18,7 +18,7 @@ namespace Fineo.Interfaces
 
         public override bool Equals(object obj)
         {
-            MessageBusDTO other = obj as MessageBusDTO;
+            MessageBusDto other = obj as MessageBusDto;
             if(other != null)
             {
                 return  (other.SenderID != null ? other.SenderID.Equals(SenderID) : SenderID == null) &&
@@ -39,7 +39,14 @@ namespace Fineo.Interfaces
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            unchecked
+            {
+                int result = (SenderID != null ? SenderID.GetHashCode() : 0);
+                result = (result * 397) ^ (ReceiverID != null ? ReceiverID.GetHashCode() : 0);
+                result = (result * 397) ^ (MessageID != null ? MessageID.GetHashCode() : 0);
+                result = (result * 397) ^ (Body != null ? Body.GetHashCode() : 0);
+                return result;
+            }
         }
 
 

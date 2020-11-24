@@ -1,9 +1,8 @@
 ﻿using Fineo.Common;
-using Fineo.Constants;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace Fineo.DTOs
 {

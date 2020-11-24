@@ -147,9 +147,9 @@ namespace Fineo.FileStorage.AzureBlob
 
         string GetConnectionString(IFileStorageParams fsParams)
         {
-            string accountName = (string)fsParams.Parameters["StorageAccountName"];
-            string accountKey = (string)fsParams.Parameters["StorageAccountKey"];
-            string blobEndpoint = (string)fsParams.Parameters["BlobEndpoint"];
+            string accountName = fsParams.Parameters["StorageAccountName"];
+            string accountKey = fsParams.Parameters["StorageAccountKey"];
+            string blobEndpoint = fsParams.Parameters["BlobEndpoint"];
             string connString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};", accountName, accountKey)
                                 + (!string.IsNullOrEmpty(blobEndpoint) ? "BlobEndpoint=" + blobEndpoint : string.Empty);
 

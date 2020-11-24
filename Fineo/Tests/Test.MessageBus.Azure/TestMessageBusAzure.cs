@@ -142,12 +142,12 @@ namespace Test.MessageBus.Azure
             msgBus.Init(msgBusParams);
 
             var section = config.GetSection("TestMessage");
-            MessageBusDTO busDto = config.GetSection("TestMessage").Get<MessageBusDTO>();
+            MessageBusDto busDto = config.GetSection("TestMessage").Get<MessageBusDto>();
             busDto.Body = Guid.NewGuid().ToString();
 
             msgBus.Send(busDto);
 
-            MessageBusDTO receivedDto = msgBus.ReadNext();
+            MessageBusDto receivedDto = msgBus.ReadNext();
 
             Assert.IsTrue(busDto.Equals(receivedDto));
 

@@ -10,9 +10,9 @@ namespace Fineo.Job.SECDownload
 {
     class SECReportsDownloader
     {
-        private readonly IFileStorage fileStorage = default;
-        private readonly IMessageBus msbInFiles = default;
-        private readonly IMessageBus msbOutNotification = default;
+        private readonly IFileStorage fileStorage;
+        private readonly IMessageBus msbInFiles;
+        private readonly IMessageBus msbOutNotification;
         private bool isRunning = false;
         private Thread listenThread = null;
 
@@ -99,7 +99,7 @@ namespace Fineo.Job.SECDownload
                 });
 
 
-                var notificationDto = new MessageBusDTO();
+                var notificationDto = new MessageBusDto();
                 notificationDto.Body = JsonConvert.SerializeObject(filingDownloadedDto);
                 notificationDto.MessageID = Guid.NewGuid().ToString();
                 msbOutNotification.Send(notificationDto);

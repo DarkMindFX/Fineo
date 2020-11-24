@@ -27,17 +27,17 @@ namespace Fineo.MessageBus.Azure
         {
             account = createCloudStorageAccount(initParams);
             client = account.CreateCloudQueueClient();
-            queue = client.GetQueueReference((string)initParams.Parameters["MessageQueue"]);
+            queue = client.GetQueueReference(initParams.Parameters["MessageQueue"]);
             queue.CreateIfNotExistsAsync();
         }
 
-        public MessageBusDTO ReadNext()
+        public MessageBusDto ReadNext()
         {
-            MessageBusDTO result = null;
+            MessageBusDto result = null;
             CloudQueueMessage newMessage = queue.GetMessageAsync().Result;
             if (newMessage != null)
             {
-                result = JsonConvert.DeserializeObject<MessageBusDTO>(newMessage.AsString);
+                result = JsonConvert.DeserializeObject<MessageBusDto>(newMessage.AsString);
 
                 if (string.IsNullOrEmpty(ID) || string.IsNullOrEmpty(result.ReceiverID) || ID.Equals(result.ReceiverID))
                 {
@@ -48,7 +48,7 @@ namespace Fineo.MessageBus.Azure
             return result;
         }
 
-        public void Send(MessageBusDTO msg)
+        public void Send(MessageBusDto msg)
         {
             CloudQueueMessage queueMsg = new CloudQueueMessage(JsonConvert.SerializeObject(msg));
             queue.AddMessageAsync(queueMsg).Wait();
@@ -63,10 +63,10 @@ namespace Fineo.MessageBus.Azure
         #region Support method
         CloudStorageAccount createCloudStorageAccount(IMessageBusParams ctxParams)
         {
-            String accountName = (string)ctxParams.Parameters["StorageAccountName"];
-            String accountKey = (string)ctxParams.Parameters["StorageAccountKey"];
-            String queueEndpoint = (string)ctxParams.Parameters["QueueEndpoint"];
-            String connString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};", accountName, accountKey) 
+            string accountName = ctxParams.Parameters["StorageAccountName"];
+            string accountKey = ctxParams.Parameters["StorageAccountKey"];
+            string queueEndpoint = ctxParams.Parameters["QueueEndpoint"];
+            string connString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};", accountName, accountKey) 
                                 + (!string.IsNullOrEmpty(queueEndpoint) ? "QueueEndpoint=" + queueEndpoint : string.Empty);
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connString);
 
