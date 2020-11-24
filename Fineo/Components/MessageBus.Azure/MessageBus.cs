@@ -50,8 +50,8 @@ namespace Fineo.MessageBus.Azure
 
         public void Send(MessageBusDTO msg)
         {
-            CloudQueueMessage msg = new CloudQueueMessage(JsonConvert.SerializeObject(msg));
-            queue.AddMessageAsync(msg).Wait();
+            CloudQueueMessage queueMsg = new CloudQueueMessage(JsonConvert.SerializeObject(msg));
+            queue.AddMessageAsync(queueMsg).Wait();
         }
 
         public bool Delete()
