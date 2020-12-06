@@ -4,6 +4,7 @@ pipeline {
 		CONFIG = 'Release'
 		PLATFORM = 'Any CPU'
 		BUILD_NUMBER = '101'
+		AZURE_EMULATOR_HOME='C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator'
 	}
     stages {
         stage('Stage - Start') {
@@ -11,6 +12,12 @@ pipeline {
                 echo 'Pipeline started' 
             }
         }
+		stage('Check Env Vars') {
+			steps {
+				bat 'echo "Checking AZURE_EMULATOR_HOME:"'
+				bat 'echo "%AZURE_EMULATOR_HOME%"'
+			}
+		}
 		stage('Restore Nuget') {
 			steps {
 				bat 'dotnet restore Fineo\\Fineo.sln'
