@@ -48,6 +48,9 @@ pipeline {
 				bat 'dotnet sonarscanner end /d:sonar.login="f1ca19af842666e8987576d7a1100075bf1ed8b8"'
 			}
 		}
+		stage('Deploy confirm') {
+			input 'Proceed with deploy?'
+		}
 		
     }
 }
