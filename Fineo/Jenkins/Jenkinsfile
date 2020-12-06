@@ -37,7 +37,7 @@ pipeline {
 			}
 		}
 		stage('Running Tests') {
-			steps {
+	
 				parallel {
 					stage('Tests - Part 1') {
 						steps {
@@ -54,7 +54,7 @@ pipeline {
 						}
 					}
 				}
-			}
+			
 		}
 		stage('Sonar - End') {
 			steps {
