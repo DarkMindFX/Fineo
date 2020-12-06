@@ -1,9 +1,9 @@
 pipeline {
     agent any 
 	environment {
-		MSBUILD = '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\"'
 		CONFIG = 'Release'
-		PLATFORM = 'x64'
+		PLATFORM = 'Any CPU'
+		BUILD_NUMBER = '101'
 	}
     stages {
         stage('Stage - Start') {
@@ -16,9 +16,9 @@ pipeline {
 				bat 'dotnet restore Fineo\\Fineo.sln'
 			}
 		}
-		stage('MSBuild') {
+		stage('Build') {
 			steps {
-				bat "\"${MSBUILD}\" ${WORKSPACE}\Fineo\Fineo.sln /p:Configuration=${env.CONFIG};Platform=${env.PLATFORM} /nodeReuse:false"
+				bat "\"${tool 'MSBuild'}\" ${WORKSPACE}\\Fineo\\Fineo.sln /p:Configuration=${env.CONFIG} /p:Platform=${env.PLATFORM} /p:ProductionVersion=1.0.0.${env.BUILD_NUMBER}"
 			}
 		}
 		
