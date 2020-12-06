@@ -4,7 +4,7 @@ pipeline {
 		CONFIG = 'Release'
 		PLATFORM = 'Any CPU'
 		BUILD_NUMBER = '101'
-		AZURE_EMULATOR_HOME='C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator'
+		AZURE_EMULATOR_HOME='C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\Storage Emulator'
 	}
     stages {
         stage('Stage - Start') {
