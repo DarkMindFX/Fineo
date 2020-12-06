@@ -49,7 +49,12 @@ pipeline {
 			}
 		}
 		stage('Deploy confirm') {
-			input 'Proceed with deploy?'
+			input "Proceed with deploy?"
+		}
+		stage('Deploy') {
+			steps {
+				bat 'echo \"Deployed\"'
+			}
 		}
 		
     }
