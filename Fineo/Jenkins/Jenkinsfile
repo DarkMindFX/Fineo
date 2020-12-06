@@ -49,7 +49,9 @@ pipeline {
 			}
 		}
 		stage('Deploy confirm') {
-			input "Proceed with deploy?"
+			timeout(time: 15, unit: "MINUTES") {
+				input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
+			}
 		}
 		stage('Deploy') {
 			steps {
