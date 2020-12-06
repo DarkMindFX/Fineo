@@ -25,8 +25,7 @@ pipeline {
 		}
 		stage('Sonar - Begin') {
 			steps {
-				bat 'dotnet sonarscanner begin /k:"f1ca19af842666e8987576d7a1100075bf1ed8b8" /n:"Fineo-Local" /v:"1.0" /d:sonar.login="f1ca19af842666e8987576d7a1100075bf1ed8b8" /d:sonar.exclusions="**/wwwroot/**,**/obj/**,**/bin/**" /d:sonar.cs.opencover.reportsPaths="**\coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths="**\TestResults.trx"
-'
+				bat 'dotnet sonarscanner begin /k:"f1ca19af842666e8987576d7a1100075bf1ed8b8" /n:"Fineo-Local" /v:"1.0" /d:sonar.login="f1ca19af842666e8987576d7a1100075bf1ed8b8" /d:sonar.exclusions="**/wwwroot/**,**/obj/**,**/bin/**" /d:sonar.cs.opencover.reportsPaths="**\\coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths="**\\TestResults.trx"'
 			}
 		}
 		stage('Build') {
@@ -42,6 +41,11 @@ pipeline {
 				bat 'dotnet test Fineo\\Tests\\Test.Fineo.Interfaces\\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
 				bat 'dotnet test Fineo\\Tests\\Test.Fineo.SEC.Api\\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
 				bat 'dotnet test Fineo\\Tests\\Test.MessageBus.Azure\\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
+			}
+		}
+		stage('Sonar - End') {
+			steps {
+				bat 'dotnet sonarscanner end /d:sonar.login="f1ca19af842666e8987576d7a1100075bf1ed8b8"'
 			}
 		}
 		
