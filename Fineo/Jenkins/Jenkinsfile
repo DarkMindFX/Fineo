@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				bat "\"${tool 'MSBuild'}\" ${WORKSPACE}\\Fineo\\Fineo.sln /p:Configuration=${env.CONFIG} /p:Platform=${env.PLATFORM} /p:ProductionVersion=1.0.0.${env.BUILD_NUMBER}"
+				bat "\"${tool 'MSBuild-MSVS2019'}\" ${WORKSPACE}\\Fineo\\Fineo.sln /p:Configuration=${env.CONFIG} /p:Platform=${env.PLATFORM} /p:ProductionVersion=1.0.0.${env.BUILD_NUMBER}"
 			}
 		}
 		
