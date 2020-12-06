@@ -28,6 +28,16 @@ pipeline {
 				bat "\"${tool 'MSBuild-MSVS2019'}\" ${WORKSPACE}\\Fineo\\Fineo.sln /p:Configuration=${env.CONFIG} /p:Platform=\"${env.PLATFORM}\" /p:ProductionVersion=1.0.0.${env.BUILD_NUMBER}"
 			}
 		}
+		stage('Running Tests') {
+			steps {
+				bat "dotnet test Fineo\Tests\Test.AzureEmulatorHelper\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+				bat "dotnet test Fineo\Tests\Test.FileStorage.AzreBlob\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+				bat "dotnet test Fineo\Tests\Test.Fineo.Common\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+				bat "dotnet test Fineo\Tests\Test.Fineo.Interfaces\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+				bat "dotnet test Fineo\Tests\Test.Fineo.SEC.Api\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+				bat "dotnet test Fineo\Tests\Test.MessageBus.Azure\ --logger "trx;LogFileName=TestResults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+			}
+		}
 		
     }
 }
