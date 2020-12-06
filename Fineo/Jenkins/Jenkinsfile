@@ -23,6 +23,12 @@ pipeline {
 				bat 'dotnet restore Fineo\\Fineo.sln'
 			}
 		}
+		stage('Sonar - Begin') {
+			steps {
+				bat 'dotnet sonarscanner begin /k:"f1ca19af842666e8987576d7a1100075bf1ed8b8" /n:"Fineo-Local" /v:"1.0" /d:sonar.login="f1ca19af842666e8987576d7a1100075bf1ed8b8" /d:sonar.exclusions="**/wwwroot/**,**/obj/**,**/bin/**" /d:sonar.cs.opencover.reportsPaths="**\coverage.opencover.xml" /d:sonar.cs.vstest.reportsPaths="**\TestResults.trx"
+'
+			}
+		}
 		stage('Build') {
 			steps {
 				bat "\"${tool 'MSBuild-MSVS2019'}\" ${WORKSPACE}\\Fineo\\Fineo.sln /p:Configuration=${env.CONFIG} /p:Platform=\"${env.PLATFORM}\" /p:ProductionVersion=1.0.0.${env.BUILD_NUMBER}"
